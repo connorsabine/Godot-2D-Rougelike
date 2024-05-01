@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+@export var inventory : Inventory
 
 @export var SPEED : float = 300.0
 
@@ -38,3 +39,6 @@ func update_animation_parameters():
 		animation_tree["parameters/idle/blend_position"] = direction
 		animation_tree["parameters/walk/blend_position"] = direction
 	
+
+func collect(item):
+	inventory.insert(item)
