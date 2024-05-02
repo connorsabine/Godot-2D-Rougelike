@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://b0t61jfg1fd5c"]
 
 [ext_resource type="Texture2D" uid="uid://ruqsln6nofgu" path="res://assets/inventory-background.png" id="1_d31y8"]
-[ext_resource type="PackedScene" uid="uid://dn3apf3y766i0" path="res://farming/seedpacks/carrot/CarrotSeedpack.tscn" id="2_s88ki"]
-[ext_resource type="PackedScene" uid="uid://bfttk0q51fofa" path="res://farming/seedpacks/onion/OnionSeedpack.tscn" id="3_vj6ls"]
+[ext_resource type="PackedScene" uid="uid://dn3apf3y766i0" path="res://tools/CarrotSeedpack/CarrotSeedpack.tscn" id="2_q7mq0"]
+[ext_resource type="PackedScene" uid="uid://bfttk0q51fofa" path="res://tools/OnionSeedpack/OnionSeedpack.tscn" id="3_frrj3"]
 [ext_resource type="PackedScene" uid="uid://ck1xg46ycnj6m" path="res://inventory/scenes/InventoryUI.tscn" id="4_bpyah"]
 
 [node name="HUD" type="CanvasLayer"]
@@ -21,11 +21,11 @@ grow_horizontal = 2
 grow_vertical = 0
 texture = ExtResource("1_d31y8")
 
-[node name="CarrotSeedpack" parent="TextureRect" instance=ExtResource("2_s88ki")]
+[node name="CarrotSeedpack" parent="TextureRect" instance=ExtResource("2_q7mq0")]
 position = Vector2(33, 93)
 scale = Vector2(3.6, 3.6)
 
-[node name="OnionSeedpack" parent="TextureRect" instance=ExtResource("3_vj6ls")]
+[node name="OnionSeedpack" parent="TextureRect" instance=ExtResource("3_frrj3")]
 position = Vector2(33, 47)
 scale = Vector2(3.6, 3.6)
 

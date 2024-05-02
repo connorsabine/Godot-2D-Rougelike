@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_onqnn"]
 [ext_resource type="PackedScene" uid="uid://80gwmdm0723n" path="res://scenes/player.tscn" id="3_8oa0x"]
 [ext_resource type="PackedScene" uid="uid://b0t61jfg1fd5c" path="res://scenes/hud.tscn" id="5_caksw"]
-[ext_resource type="PackedScene" uid="uid://2s7iiouyjkxt" path="res://farming/growingzone.tscn" id="5_yq44u"]
+[ext_resource type="PackedScene" uid="uid://2s7iiouyjkxt" path="res://tiles/GrowingZone/growingzone.tscn" id="5_yq44u"]
 [ext_resource type="PackedScene" uid="uid://boywcd6hwhbjf" path="res://scenes/pause_menu.tscn" id="6_ry70v"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f7gb7"]
