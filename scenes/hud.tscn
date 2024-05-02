@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dkn1d8gqu2c1j"]
+[gd_scene load_steps=5 format=3 uid="uid://b0t61jfg1fd5c"]
 
 [ext_resource type="Texture2D" uid="uid://ruqsln6nofgu" path="res://assets/inventory-background.png" id="1_d31y8"]
 [ext_resource type="PackedScene" uid="uid://dn3apf3y766i0" path="res://farming/seedpacks/carrot/CarrotSeedpack.tscn" id="2_s88ki"]
 [ext_resource type="PackedScene" uid="uid://bfttk0q51fofa" path="res://farming/seedpacks/onion/OnionSeedpack.tscn" id="3_vj6ls"]
+[ext_resource type="PackedScene" uid="uid://ck1xg46ycnj6m" path="res://inventory/scenes/InventoryUI.tscn" id="4_bpyah"]
 
 [node name="HUD" type="CanvasLayer"]
 
@@ -27,3 +28,18 @@ scale = Vector2(3.6, 3.6)
 [node name="OnionSeedpack" parent="TextureRect" instance=ExtResource("3_vj6ls")]
 position = Vector2(33, 47)
 scale = Vector2(3.6, 3.6)
+
+[node name="InventoryUI" parent="." instance=ExtResource("4_bpyah")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -168.0
+offset_top = -128.0
+offset_right = -85.0
+offset_bottom = -65.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(4, 4)
+size_flags_horizontal = 4
