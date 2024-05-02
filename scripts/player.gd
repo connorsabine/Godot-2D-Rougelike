@@ -42,3 +42,11 @@ func update_animation_parameters():
 
 func collect(item):
 	inventory.insert(item)
+	
+	
+func _on_pickup_range_area_entered(area):
+	if area.get_name() == "Carrot":
+		collect(load("res://inventory/items/carrot.tres"))
+		
+	elif area.get_name() == "Onion":
+		collect(load("res://inventory/items/onion.tres"))

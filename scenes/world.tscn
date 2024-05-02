@@ -1,11 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://d37xfebn0rwca"]
+[gd_scene load_steps=8 format=3 uid="uid://d37xfebn0rwca"]
 
 [ext_resource type="Texture2D" uid="uid://bn1vicbd1u0ds" path="res://assets/tilemap1.png" id="1_75i7e"]
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_onqnn"]
 [ext_resource type="PackedScene" uid="uid://80gwmdm0723n" path="res://scenes/player.tscn" id="3_8oa0x"]
-[ext_resource type="PackedScene" uid="uid://dn3apf3y766i0" path="res://farming/seedpacks/carrot/CarrotSeedpack.tscn" id="4_nayk4"]
-[ext_resource type="PackedScene" uid="uid://2s7iiouyjkxt" path="res://farming/growingzone.tscn" id="5_yq44u"]
-[ext_resource type="PackedScene" uid="uid://bfttk0q51fofa" path="res://farming/seedpacks/onion/OnionSeedpack.tscn" id="6_rgtwh"]
+[ext_resource type="PackedScene" uid="uid://dkn1d8gqu2c1j" path="res://scenes/hud.tscn" id="5_caksw"]
+[ext_resource type="PackedScene" uid="uid://2s7iiouyjkxt" path="res://farming/GrowingZone.tscn" id="5_yq44u"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f7gb7"]
 texture = ExtResource("1_75i7e")
@@ -1820,7 +1819,7 @@ custom_data_layer_1/name = "can_place_dirt"
 custom_data_layer_1/type = 1
 sources/0 = SubResource("TileSetAtlasSource_f7gb7")
 
-[node name="world" type="Node2D"]
+[node name="World" type="Node2D"]
 script = ExtResource("1_onqnn")
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -1837,15 +1836,13 @@ layer_2/tile_data = PackedInt32Array()
 layer_3/name = "cliffs"
 layer_3/tile_data = PackedInt32Array(262152, 720896, 21, 196616, 393216, 20, 131080, 589824, 20, 65544, 589824, 20, 8, 589824, 20, -65528, 589824, 20, -131064, 655360, 18, 262151, 589824, 21, 196615, 589824, 20, 131079, 589824, 20, 65543, 589824, 20, 7, 589824, 20, -65529, 589824, 20, -131065, 655360, 18, 262150, 589824, 21, 196614, 589824, 20, 131078, 589824, 20, 65542, 589824, 20, 6, 589824, 20, -65530, 589824, 20, -131066, 655360, 18, 262149, 589824, 21, 196613, 589824, 20, 131077, 589824, 20, 65541, 589824, 20, 5, 589824, 20, -65531, 589824, 20, -131067, 655360, 18, 262148, 589824, 21, 196612, 589824, 20, 131076, 589824, 20, 65540, 589824, 20, 4, 589824, 20, -65532, 327680, 19, -131068, 524288, 18, 262147, 524288, 21, 196611, 327680, 20, 131075, 589824, 20, 65539, 589824, 20, 3, 589824, 20, -65533, 655360, 18, 65538, 524288, 19, 196610, 524288, 21, 131074, 524288, 19, 2, 524288, 19, -65534, 524288, 18, 65548, 720896, 21, 12, 720896, 20, -65524, 720896, 20, -65525, 589824, 20, -65526, 589824, 20, -65527, 589824, 20, 131081, 393216, 20, 65546, 393216, 20, 11, 589824, 20, 65547, 589824, 21, 131082, 720896, 21, 196617, 720896, 21, 65545, 589824, 20, 9, 589824, 20, 10, 589824, 20, -131063, 655360, 18, -131062, 655360, 18, -131061, 655360, 18, -131060, 720896, 18)
 
+[node name="GrowingZone" parent="." instance=ExtResource("5_yq44u")]
+position = Vector2(-56, 21)
+
 [node name="Player" parent="." instance=ExtResource("3_8oa0x")]
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(1.5, 1.5)
+position_smoothing_enabled = true
 
-[node name="growingzone" parent="." instance=ExtResource("5_yq44u")]
-position = Vector2(-66, -10)
-
-[node name="CarrotSeedpack" parent="." instance=ExtResource("4_nayk4")]
-position = Vector2(-1, 25)
-
-[node name="OnionSeedpack" parent="." instance=ExtResource("6_rgtwh")]
+[node name="HUD" parent="Player" instance=ExtResource("5_caksw")]

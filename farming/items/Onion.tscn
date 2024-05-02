@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://bgh5xh4qjwgji"]
+
+[ext_resource type="Script" path="res://farming/items/Onion.gd" id="1_2bmsc"]
+[ext_resource type="Texture2D" uid="uid://ce8okvbrlq166" path="res://assets/farming.png" id="1_7vtye"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k8aty"]
+atlas = ExtResource("1_7vtye")
+region = Rect2(80, 48, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_eu3dg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k8aty")
+}],
+"loop": true,
+"name": &"onion",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u43lw"]
+radius = 4.0
+height = 17.1525
+
+[node name="Onion" type="StaticBody2D"]
+script = ExtResource("1_2bmsc")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_eu3dg")
+animation = &"onion"
+
+[node name="Onion" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Onion"]
+rotation = 0.872665
+shape = SubResource("CapsuleShape2D_u43lw")
+
+[connection signal="area_entered" from="Onion" to="." method="_on_onion_area_entered"]

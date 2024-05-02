@@ -1,26 +1,15 @@
 extends StaticBody2D
 
-var plant = Global.plantselected
+var selected = Global.SELECTEDTOOL
 var plantgrowing = false
 var plantgrown = false
 
-func _physics_process(delta):
+var carrot = preload("res://farming/items/Carrot.tscn")
+var onion = preload("res://farming/items/Onion.tscn")
+
+func _process(delta):
 	if plantgrowing == false:
-		plant = Global.plantselected
-
-func _on_area_2d_area_entered(area):
-	if not plantgrowing:
-		if plant == 1:
-			plantgrowing = true
-			$carrotgrowtimer.start()
-			$Plant.play("carrot")
-		if plant == 2:
-			plantgrowing = true
-			$oniongrowtimer.start()
-			$Plant.play("onion")
-	else:
-		print("plant already growing here")
-
+		selected = Global.SELECTEDTOOL
 
 func _on_carrotgrowtimer_timeout():
 	var carrot_plant = $Plant
@@ -39,3 +28,48 @@ func _on_oniongrowtimer_timeout():
 	elif onion_plant.frame == 1:
 		onion_plant.frame = 2
 		plantgrown = true
+		
+
+func _on_area_2d_input_event(viewport, event, shape_idx):
+	if Input.is_action_just_pressed("click"):
+		if not plantgrowing:
+			if selected == Global.TOOLTYPE.CARROT:
+				plantgrowing = true
+				$carrotgrowtimer.start()
+				$Plant.play("carrot")
+			elif selected == Global.TOOLTYPE.ONION:
+				plantgrowing = true
+				$oniongrowtimer.start()
+				$Plant.play("onion")
+			else:
+				pass
+		
+		elif plantgrown:
+			if selected == Global.TOOLTYPE.CARROT:
+				plantgrowing = false
+				plantgrown = false
+				$Plant.play("none")
+				drop_carrot()
+			elif selected == Global.TOOLTYPE.ONION:
+				plantgrowing = false
+				plantgrown = false
+				$Plant.play("none")
+				drop_onion()
+			else:
+				pass
+		else:
+			pass
+
+
+func drop_onion():
+	var plant_instance = onion.instantiate()
+	plant_instance.global_position = Vector2i(($Marker2D.global_position.x + randi_range(-10, 10)),
+		($Marker2D.global_position.y + randi_range(-10, 10)))
+	get_parent().add_child(plant_instance)
+
+
+func drop_carrot():
+	var plant_instance = carrot.instantiate()
+	plant_instance.global_position = Vector2i(($Marker2D.global_position.x + randi_range(-10, 10)),
+		($Marker2D.global_position.y + randi_range(-10, 10)))
+	get_parent().add_child(plant_instance)

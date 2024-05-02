@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://80gwmdm0723n"]
+[gd_scene load_steps=31 format=3 uid="uid://80gwmdm0723n"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_88qcy"]
 [ext_resource type="Resource" uid="uid://gqc5y4bvhs2a" path="res://inventory/data/player.tres" id="2_0fyuq"]
@@ -303,6 +303,9 @@ states/walk/node = SubResource("AnimationNodeBlendSpace2D_5v436")
 states/walk/position = Vector2(422.667, 41.6667)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_pmqne"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_l4f8u"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_fa30v")]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_qnd35"]
+radius = 24.0832
+
 [node name="Player" type="CharacterBody2D"]
 visibility_layer = 2
 script = ExtResource("1_88qcy")
@@ -341,3 +344,10 @@ offset_left = -41.0
 offset_top = -92.0
 offset_right = 42.0
 offset_bottom = -29.0
+
+[node name="Pickup" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pickup"]
+shape = SubResource("CircleShape2D_qnd35")
+
+[connection signal="area_entered" from="Pickup" to="." method="_on_pickup_range_area_entered"]
