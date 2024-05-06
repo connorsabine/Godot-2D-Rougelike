@@ -29,10 +29,10 @@ script = ExtResource("1_2bmsc")
 sprite_frames = SubResource("SpriteFrames_eu3dg")
 animation = &"onion"
 
-[node name="Onion" type="Area2D" parent="."]
+[node name="OnionPickup" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Onion"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OnionPickup"]
 rotation = 0.872665
 shape = SubResource("CapsuleShape2D_u43lw")
 
-[connection signal="area_entered" from="Onion" to="." method="_on_onion_area_entered"]
+[connection signal="area_entered" from="OnionPickup" to="." method="_on_onion_area_entered"]

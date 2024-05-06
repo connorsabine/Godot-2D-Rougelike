@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://cfh3mrxfm3pyc"]
+
+[ext_resource type="Script" path="res://items/Apple/Apple.gd" id="1_e8ja1"]
+[ext_resource type="Texture2D" uid="uid://ce8okvbrlq166" path="res://assets/farming.png" id="1_y40uf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_neis4"]
+radius = 7.0
+
+[node name="Apple" type="StaticBody2D"]
+script = ExtResource("1_e8ja1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_y40uf")
+region_enabled = true
+region_rect = Rect2(112.364, 65.4358, 15.0362, 13.8491)
+
+[node name="ApplePickup" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ApplePickup"]
+shape = SubResource("CircleShape2D_neis4")
+
+[connection signal="area_entered" from="ApplePickup" to="." method="_on_apple_pickup_area_entered"]

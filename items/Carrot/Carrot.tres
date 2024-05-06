@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=4 format=3 uid="uid://t2y5wkd0unbs"]
+
+[ext_resource type="Script" path="res://inventory/scripts/InventoryItem.gd" id="1_p4x7p"]
+[ext_resource type="Texture2D" uid="uid://ce8okvbrlq166" path="res://assets/farming.png" id="2_xl6dv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_srgtv"]
+atlas = ExtResource("2_xl6dv")
+region = Rect2(128.118, 32.1574, 15.3947, 15.3948)
+
+[resource]
+script = ExtResource("1_p4x7p")
+name = "carrot"
+texture = SubResource("AtlasTexture_srgtv")

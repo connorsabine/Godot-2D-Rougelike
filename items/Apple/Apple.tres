@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=4 format=3 uid="uid://yplcuwyfb7es"]
+
+[ext_resource type="Script" path="res://inventory/scripts/InventoryItem.gd" id="1_0pjp7"]
+[ext_resource type="Texture2D" uid="uid://ce8okvbrlq166" path="res://assets/farming.png" id="2_wdmwn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xlue6"]
+atlas = ExtResource("2_wdmwn")
+region = Rect2(111.671, 64.9474, 15.9079, 15.3948)
+
+[resource]
+script = ExtResource("1_0pjp7")
+name = "apple"
+texture = SubResource("AtlasTexture_xlue6")

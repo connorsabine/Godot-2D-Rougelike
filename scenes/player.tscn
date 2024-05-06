@@ -1,7 +1,7 @@
 [gd_scene load_steps=30 format=3 uid="uid://80gwmdm0723n"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_88qcy"]
-[ext_resource type="Resource" uid="uid://gqc5y4bvhs2a" path="res://inventory/data/player.tres" id="2_0fyuq"]
+[ext_resource type="Resource" uid="uid://gqc5y4bvhs2a" path="res://player/inventory.tres" id="2_0m2gm"]
 [ext_resource type="Texture2D" uid="uid://dv8023dbpaipp" path="res://assets/player.png" id="2_saggl"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yni73"]
@@ -308,7 +308,7 @@ radius = 24.0832
 [node name="Player" type="CharacterBody2D"]
 visibility_layer = 2
 script = ExtResource("1_88qcy")
-inventory = ExtResource("2_0fyuq")
+inventory = ExtResource("2_0m2gm")
 SPEED = 100.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

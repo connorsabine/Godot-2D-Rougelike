@@ -29,10 +29,10 @@ script = ExtResource("1_fy00a")
 sprite_frames = SubResource("SpriteFrames_upph3")
 animation = &"carrot"
 
-[node name="Carrot" type="Area2D" parent="."]
+[node name="CarrotPickup" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Carrot"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CarrotPickup"]
 rotation = 0.872665
 shape = SubResource("CapsuleShape2D_j5a2e")
 
-[connection signal="area_entered" from="Carrot" to="." method="_on_carrot_area_entered"]
+[connection signal="area_entered" from="CarrotPickup" to="." method="_on_carrot_area_entered"]
