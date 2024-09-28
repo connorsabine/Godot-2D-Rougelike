@@ -10,11 +10,9 @@ func _process(delta):
 
 func _on_area_2d_input_event(viewport, event, shape_idx):
 	if Input.is_action_just_pressed("click"):
-		if Global.SELECTEDTOOL == Global.TOOLTYPE.AXE:
+		if Global.CURRENT_ITEM == "axe":
 			health -= 25
-			print(health)
-	if Input.is_action_just_pressed("click"):
-		if Global.SELECTEDTOOL == Global.TOOLTYPE.NONE:
+		else:
 			health -= 5
 
 func drop_wood(num):

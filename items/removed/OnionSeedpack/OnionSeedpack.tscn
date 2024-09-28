@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://bfttk0q51fofa"]
 
-[ext_resource type="Script" path="res://tools/OnionSeedpack/OnionSeedpack.gd" id="1_0eacd"]
+[ext_resource type="Script" path="res://items/removed/OnionSeedpack/OnionSeedpack.gd" id="1_0eacd"]
 [ext_resource type="Texture2D" uid="uid://ce8okvbrlq166" path="res://assets/farming.png" id="1_6owr1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oatdn"]

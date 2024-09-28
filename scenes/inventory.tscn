@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://by2ej87t1x44o"]
+
+[ext_resource type="PackedScene" uid="uid://ck1xg46ycnj6m" path="res://inv/scenes/InventoryUI.tscn" id="1_utv71"]
+
+[node name="inventory" type="CanvasLayer"]
+offset = Vector2(400, 150)
+scale = Vector2(3.5, 3.5)
+transform = Transform2D(3.5, 0, 0, 3.5, 400, 150)
+
+[node name="InventoryUI" parent="." instance=ExtResource("1_utv71")]

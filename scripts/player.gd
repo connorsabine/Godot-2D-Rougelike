@@ -15,8 +15,10 @@ var direction : Vector2 = Vector2.ZERO
 func _ready():
 	animation_tree.active = true
 
-# Update Animations
 func _process(delta):
+	update_held_item()
+	#inventory.update.connect(update_held_item())
+	#get_parent().hotbar_update.connect(update_held_item())
 	update_animation_parameters()
 
 # Simple Movement
@@ -28,6 +30,7 @@ func _physics_process(delta):
 		velocity = Vector2.ZERO
 
 	move_and_slide()
+	
 
 
 # Update Animation Directions
@@ -43,6 +46,12 @@ func update_animation_parameters():
 		animation_tree["parameters/idle/blend_position"] = direction
 		animation_tree["parameters/walk/blend_position"] = direction
 	
+	
+# Update to the currently held item
+func update_held_item():
+	Global.CURRENT_ITEM = inventory.get_index(Global.SELECTED_HOTBAR_SLOT)
+	
+	
 
 # Add Item to Inventory
 func collect(item):
@@ -54,4 +63,3 @@ func _on_pickup_range_area_entered(area):
 	if "Pickup" in area.get_name():
 		var item = area.get_name().replace("Pickup", "")
 		collect(load("res://items/%s/%s.tres" % [item, item]))
-	

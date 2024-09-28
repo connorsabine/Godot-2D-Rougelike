@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://b0t61jfg1fd5c"]
+
+[ext_resource type="PackedScene" uid="uid://cjrnq43kbgamb" path="res://inv/scenes/HotbarUI.tscn" id="1_511xu"]
+
+[node name="hotbar" type="CanvasLayer"]
+offset = Vector2(470, 600)
+scale = Vector2(1.5, 1.5)
+transform = Transform2D(1.5, 0, 0, 1.5, 470, 600)
+
+[node name="HotbarUI" parent="." instance=ExtResource("1_511xu")]

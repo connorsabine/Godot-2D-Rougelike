@@ -1,9 +1,10 @@
 [gd_resource type="Resource" script_class="InventoryItem" load_steps=3 format=3 uid="uid://cgvk2v0iwhmwu"]
 
-[ext_resource type="Script" path="res://inventory/scripts/InventoryItem.gd" id="1_cu8im"]
+[ext_resource type="Script" path="res://inv/scripts/InventoryItem.gd" id="1_cu8im"]
 [ext_resource type="Texture2D" uid="uid://dj80y6dhhgjy4" path="res://assets/inventory-slot.png" id="2_c8vnx"]
 
 [resource]
 script = ExtResource("1_cu8im")
 name = "oakwood"
+stackable = true
 texture = ExtResource("2_c8vnx")

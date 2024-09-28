@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://dn3apf3y766i0"]
 
-[ext_resource type="Script" path="res://tools/CarrotSeedpack/CarrotSeedpack.gd" id="1_nw0sx"]
+[ext_resource type="Script" path="res://items/removed/CarrotSeedpack/CarrotSeedpack.gd" id="1_nw0sx"]
 [ext_resource type="Texture2D" uid="uid://ce8okvbrlq166" path="res://assets/farming.png" id="2_caivs"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hqhx4"]
