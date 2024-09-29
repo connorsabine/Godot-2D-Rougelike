@@ -24,4 +24,3 @@ func drop():
 	instance.global_position = Vector2i(($Marker2D.global_position.x + randi_range(-10, 10)),
 		($Marker2D.global_position.y + randi_range(-10, 10)))
 	get_parent().add_child(instance)
-

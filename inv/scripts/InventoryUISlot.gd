@@ -12,3 +12,9 @@ func update(slot: InventorySlot):
 		visual.texture = slot.item.texture
 		amount.visible = true
 		amount.text = str(slot.amount)
+
+func select():
+	self_modulate = Color(20, 20, 20, 1.0)
+	
+func deselect():
+	self_modulate = Color(.05, .05, .05, 1.0)

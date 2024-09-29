@@ -16,9 +16,7 @@ func _ready():
 	animation_tree.active = true
 
 func _process(delta):
-	update_held_item()
-	#inventory.update.connect(update_held_item())
-	#get_parent().hotbar_update.connect(update_held_item())
+	#update_held_item()
 	update_animation_parameters()
 
 # Simple Movement
@@ -47,10 +45,10 @@ func update_animation_parameters():
 		animation_tree["parameters/walk/blend_position"] = direction
 	
 	
-# Update to the currently held item
-func update_held_item():
-	Global.CURRENT_ITEM = inventory.get_index(Global.SELECTED_HOTBAR_SLOT)
-	
+## Update to the currently held item
+#func update_held_item():
+	#Global.CURRENT_ITEM = inventory.get_index(Global.SELECTED_HOTBAR_SLOT)
+	#
 	
 
 # Add Item to Inventory

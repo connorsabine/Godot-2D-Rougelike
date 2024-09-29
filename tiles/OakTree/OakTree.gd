@@ -10,7 +10,7 @@ func _process(delta):
 
 func _on_area_2d_input_event(viewport, event, shape_idx):
 	if Input.is_action_just_pressed("click"):
-		if Global.CURRENT_ITEM == "axe":
+		if Global.HELD_ITEM == "axe":
 			health -= 25
 		else:
 			health -= 5
