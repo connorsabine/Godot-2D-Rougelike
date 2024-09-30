@@ -10,4 +10,7 @@ region = Rect2(128.118, 32.1574, 15.3947, 15.3948)
 [resource]
 script = ExtResource("1_p4x7p")
 name = "carrot"
+stackable = false
+edible = false
+level = 0.0
 texture = SubResource("AtlasTexture_srgtv")

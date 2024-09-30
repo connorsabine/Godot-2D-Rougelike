@@ -232,7 +232,7 @@ script = ExtResource("1_issyq")
 item = SubResource("Resource_u4tb5")
 amount = 0
 
-[sub_resource type="Resource" id="Resource_aosls"]
+[sub_resource type="Resource" id="Resource_ac642"]
 script = ExtResource("3_6f8ed")
 name = ""
 stackable = false
@@ -241,10 +241,10 @@ level = 0.0
 
 [sub_resource type="Resource" id="Resource_4xus8"]
 script = ExtResource("1_issyq")
-item = SubResource("Resource_aosls")
+item = SubResource("Resource_ac642")
 amount = 0
 
-[sub_resource type="Resource" id="Resource_1xlgy"]
+[sub_resource type="Resource" id="Resource_1adio"]
 script = ExtResource("3_6f8ed")
 name = ""
 stackable = false
@@ -253,7 +253,7 @@ level = 0.0
 
 [sub_resource type="Resource" id="Resource_n3yar"]
 script = ExtResource("1_issyq")
-item = SubResource("Resource_1xlgy")
+item = SubResource("Resource_1adio")
 amount = 0
 
 [resource]

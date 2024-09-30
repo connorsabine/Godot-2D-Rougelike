@@ -13,11 +13,11 @@ signal update
 # If not found, add it to a new item slot
 func insert(item: InventoryItem):
 	var itemslots = slots.filter(func(slot): return slot.item == item)
-	
 	if !itemslots.is_empty() && item.stackable:
 		itemslots[0].amount += 1
-	else:
+	else:		
 		var emptyslots = slots.filter(func(slot): return slot.item.is_equal(InventoryItem.new()))
+				
 		if !emptyslots.is_empty():
 			emptyslots[0].item = item
 			emptyslots[0].amount = 1
@@ -37,14 +37,15 @@ func remove(item: InventoryItem):
 		if itemslots[0].amount <= 0:
 			itemslots[0] = InventorySlot.new()
 			
+		# Emit inventory update
+		update.emit()
+		
+		# Returns true because the item was removed
 		return true
 		
-	# Return false if cant remove item
 	else:
+		# Return false if cant remove item
 		return false
-		
-	# Emit inventory update
-	update.emit()
 
 
 # Returns the item at a specific index or returns null if there is no item

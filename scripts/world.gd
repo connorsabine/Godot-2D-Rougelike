@@ -9,7 +9,6 @@ extends Node2D
 # Variables
 var ground_layer = 1
 var enviorment_layer = 2
-var farm_land_vector =  Vector2i(4, 7)
 
 
 # Signals
@@ -84,21 +83,3 @@ func _input(event):
 		if Global.HELD_ITEM.name == "shovel":
 			if get_custom_data(tile_mouse_position, "can_place_dirt", ground_layer):
 				tile_map.set_cells_terrain_connect(ground_layer, [tile_mouse_position], 3, 0)
-				#
-		#if Global.CURRENT_ITEM == "hoe":
-			#if get_custom_data(tile_mouse_position, "can_hoe_dirt", ground_layer):
-				#tile_map.set_cell(ground_layer, tile_mouse_position, 1, farm_land_vector)
-		#
-		#if Global.CURRENT_ITEM == "carrot":
-			#if get_custom_data(tile_mouse_position, "can_farm", ground_layer):
-				#var instance = load("res://tiles/Carrot/Carrot.tscn").instantiate()
-				#instance.position = Vector2((tile_mouse_position[0])*Global.TILESIZE + Global.TILESIZE/2, 
-					#(tile_mouse_position[1]-1)*Global.TILESIZE + Global.TILESIZE/2)
-				#get_parent().add_child(instance)
-				#
-		#if Global.CURRENT_ITEM == "onion":
-			#if get_custom_data(tile_mouse_position, "can_farm", ground_layer):
-				#var instance = load("res://tiles/Onion/Onion.tscn").instantiate()
-				#instance.position = Vector2((tile_mouse_position[0])*Global.TILESIZE + Global.TILESIZE/2, 
-					#(tile_mouse_position[1]-1)*Global.TILESIZE + Global.TILESIZE/2)
-				#get_parent().add_child(instance)

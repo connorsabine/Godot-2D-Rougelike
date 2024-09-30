@@ -68,8 +68,8 @@ func remove(item : InventoryItem):
 # Take Damage / Heal
 func update_health(change : float):
 	self.health += change
-	if self.health > 5:
-		self.health = 5
+	if self.health > Global.MAX_HEALTH:
+		self.health = Global.MAX_HEALTH
 	if self.health <= 0:
 		# die()
 		# reset the player to beginning

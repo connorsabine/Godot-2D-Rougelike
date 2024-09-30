@@ -1,53 +1,30 @@
 extends CanvasLayer
 
 
+# On Ready Variables
+@onready var health : float = get_tree().get_nodes_in_group("players")[0].health
+
+
 # On Ready Function
 func _ready() -> void:
-	pass
+	set_health_label(Global.MAX_HEALTH)
+	set_health_bar(Global.MAX_HEALTH)
 
 
 # Run every delta time
 func _process(delta: float) -> void:
 	
 	# Get player node and get health from it
-	update_health_display(get_tree().get_nodes_in_group("players")[0].health)
+	health = get_tree().get_nodes_in_group("players")[0].health
+	set_health_bar(health)
+	set_health_label(health)
 
 
-# Update the health display
-func update_health_display(hearts : int):
-	if hearts == 5:
-		$Heart.visible = true
-		$Heart2.visible = true
-		$Heart3.visible = true
-		$Heart4.visible = true
-		$Heart5.visible = true
-	elif hearts == 4:
-		$Heart.visible = true
-		$Heart2.visible = true
-		$Heart3.visible = true
-		$Heart4.visible = true
-		$Heart5.visible = false
-	elif hearts == 3:
-		$Heart.visible = true
-		$Heart2.visible = true
-		$Heart3.visible = true
-		$Heart4.visible = false
-		$Heart5.visible = false
-	elif hearts == 2:
-		$Heart.visible = true
-		$Heart2.visible = true
-		$Heart3.visible = false
-		$Heart4.visible = false
-		$Heart5.visible = false
-	elif hearts == 1:
-		$Heart.visible = true
-		$Heart2.visible = false
-		$Heart3.visible = false
-		$Heart4.visible = false
-		$Heart5.visible = false
-	else:
-		$Heart.visible = false
-		$Heart2.visible = false
-		$Heart3.visible = false
-		$Heart4.visible = false
-		$Heart5.visible = false
+# Update the health bar
+func set_health_bar(health : float):
+	$ProgressBar.value = health
+
+
+# Update the health label
+func set_health_label(health : float):
+	$Label.text = "Health: %s" % health
