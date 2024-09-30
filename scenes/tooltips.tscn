@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://cspniq26dbf17"]
+[gd_scene load_steps=3 format=3 uid="uid://cspniq26dbf17"]
 
-[ext_resource type="Script" path="res://tooltips.gd" id="1_lhmgp"]
+[ext_resource type="Script" path="res://scripts/tooltips.gd" id="1_lhmgp"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_uoj8l"]
+font_size = 10
 
 [node name="tooltips" type="CanvasLayer"]
 offset = Vector2(600, 600)
@@ -8,13 +11,22 @@ scale = Vector2(2, 2)
 transform = Transform2D(2, 0, 0, 2, 600, 600)
 script = ExtResource("1_lhmgp")
 
-[node name="text" type="TextEdit" parent="."]
+[node name="Label" type="Label" parent="."]
 anchors_preset = -1
-anchor_left = 0.028
-anchor_right = 0.028
-offset_left = -15.256
-offset_top = -4.0
-offset_right = 13.744
-offset_bottom = 4.0
-text = "hi"
-editable = false
+anchor_left = -0.045
+anchor_top = -0.016
+anchor_right = -0.045
+anchor_bottom = -0.016
+offset_left = 0.340004
+offset_top = -0.132
+offset_right = 79.34
+offset_bottom = 13.868
+text = "placeholder"
+label_settings = SubResource("LabelSettings_uoj8l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

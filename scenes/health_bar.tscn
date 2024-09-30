@@ -1,0 +1,36 @@
+[gd_scene load_steps=3 format=3 uid="uid://kvlhp3x456p0"]
+
+[ext_resource type="Texture2D" uid="uid://fnfmi5fd5hj4" path="res://assets/heart.png" id="1_4ut6w"]
+[ext_resource type="Script" path="res://scripts/health_bar.gd" id="1_dvku3"]
+
+[node name="health_bar" type="CanvasLayer"]
+script = ExtResource("1_dvku3")
+
+[node name="GridContainer" type="GridContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Heart" type="Sprite2D" parent="GridContainer"]
+position = Vector2(60, 60)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_4ut6w")
+
+[node name="Heart2" type="Sprite2D" parent="GridContainer"]
+position = Vector2(180, 60)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_4ut6w")
+
+[node name="Heart3" type="Sprite2D" parent="GridContainer"]
+position = Vector2(300, 60)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_4ut6w")
+
+[node name="Heart4" type="Sprite2D" parent="GridContainer"]
+position = Vector2(420, 60)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_4ut6w")
+
+[node name="Heart5" type="Sprite2D" parent="GridContainer"]
+position = Vector2(540, 60)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_4ut6w")

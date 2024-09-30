@@ -1,13 +1,19 @@
 extends CharacterBody2D
 
+
+# Variables
 var states = {"eating":false, "walking":false}
 var direction = {"x":1, "y":1}
 var speed = 15
 var moving = 1 # 1 = horizontal 2 = vertical
 
+
+# On Ready Function
 func _ready():
 	states["walking"] = true
-	
+
+
+# Walking & Eating Animations and Movement
 func _physics_process(delta):
 	var wait = 1
 	if states["walking"]:
@@ -35,6 +41,8 @@ func _physics_process(delta):
 		
 	move_and_slide()
 
+
+# Select a new state on timeout
 func _on_state_timeout():
 	var wait = 1
 	if states["walking"]:

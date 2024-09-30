@@ -1,90 +1,259 @@
-[gd_resource type="Resource" script_class="Inventory" load_steps=24 format=3 uid="uid://gqc5y4bvhs2a"]
+[gd_resource type="Resource" script_class="Inventory" load_steps=46 format=3 uid="uid://gqc5y4bvhs2a"]
 
 [ext_resource type="Script" path="res://inv/scripts/Inventory.gd" id="1_3hh32"]
 [ext_resource type="Script" path="res://inv/scripts/InventorySlot.gd" id="1_issyq"]
+[ext_resource type="Script" path="res://inv/scripts/InventoryItem.gd" id="3_6f8ed"]
+
+[sub_resource type="Resource" id="Resource_eb3os"]
+script = ExtResource("3_6f8ed")
+name = ""
+stackable = false
+edible = false
+level = 0.0
 
 [sub_resource type="Resource" id="Resource_xdl64"]
 script = ExtResource("1_issyq")
+item = SubResource("Resource_eb3os")
 amount = 0
+
+[sub_resource type="Resource" id="Resource_smt1p"]
+script = ExtResource("3_6f8ed")
+name = ""
+stackable = false
+edible = false
+level = 0.0
 
 [sub_resource type="Resource" id="Resource_2bswt"]
 script = ExtResource("1_issyq")
+item = SubResource("Resource_smt1p")
 amount = 0
+
+[sub_resource type="Resource" id="Resource_peg1j"]
+script = ExtResource("3_6f8ed")
+name = ""
+stackable = false
+edible = false
+level = 0.0
 
 [sub_resource type="Resource" id="Resource_7vqxm"]
 script = ExtResource("1_issyq")
+item = SubResource("Resource_peg1j")
 amount = 0
+
+[sub_resource type="Resource" id="Resource_y4dfb"]
+script = ExtResource("3_6f8ed")
+name = ""
+stackable = false
+edible = false
+level = 0.0
 
 [sub_resource type="Resource" id="Resource_gjqj0"]
 script = ExtResource("1_issyq")
+item = SubResource("Resource_y4dfb")
 amount = 0
+
+[sub_resource type="Resource" id="Resource_p8yua"]
+script = ExtResource("3_6f8ed")
+name = ""
+stackable = false
+edible = false
+level = 0.0
 
 [sub_resource type="Resource" id="Resource_btnax"]
 script = ExtResource("1_issyq")
+item = SubResource("Resource_p8yua")
 amount = 0
+
+[sub_resource type="Resource" id="Resource_r5tpl"]
+script = ExtResource("3_6f8ed")
+name = ""
+stackable = false
+edible = false
+level = 0.0
 
 [sub_resource type="Resource" id="Resource_y4lre"]
 script = ExtResource("1_issyq")
+item = SubResource("Resource_r5tpl")
 amount = 0
+
+[sub_resource type="Resource" id="Resource_yce4e"]
+script = ExtResource("3_6f8ed")
+name = ""
+stackable = false
+edible = false
+level = 0.0
 
 [sub_resource type="Resource" id="Resource_erj71"]
 script = ExtResource("1_issyq")
+item = SubResource("Resource_yce4e")
 amount = 0
+
+[sub_resource type="Resource" id="Resource_c61h2"]
+script = ExtResource("3_6f8ed")
+name = ""
+stackable = false
+edible = false
+level = 0.0
 
 [sub_resource type="Resource" id="Resource_3tl8p"]
 script = ExtResource("1_issyq")
+item = SubResource("Resource_c61h2")
 amount = 0
+
+[sub_resource type="Resource" id="Resource_7w6ve"]
+script = ExtResource("3_6f8ed")
+name = ""
+stackable = false
+edible = false
+level = 0.0
 
 [sub_resource type="Resource" id="Resource_bh7vd"]
 script = ExtResource("1_issyq")
+item = SubResource("Resource_7w6ve")
 amount = 0
+
+[sub_resource type="Resource" id="Resource_1sa8s"]
+script = ExtResource("3_6f8ed")
+name = ""
+stackable = false
+edible = false
+level = 0.0
 
 [sub_resource type="Resource" id="Resource_u84ok"]
 script = ExtResource("1_issyq")
+item = SubResource("Resource_1sa8s")
 amount = 0
+
+[sub_resource type="Resource" id="Resource_rkdqx"]
+script = ExtResource("3_6f8ed")
+name = ""
+stackable = false
+edible = false
+level = 0.0
 
 [sub_resource type="Resource" id="Resource_niyuy"]
 script = ExtResource("1_issyq")
+item = SubResource("Resource_rkdqx")
 amount = 0
+
+[sub_resource type="Resource" id="Resource_jj5ah"]
+script = ExtResource("3_6f8ed")
+name = ""
+stackable = false
+edible = false
+level = 0.0
 
 [sub_resource type="Resource" id="Resource_hs4kl"]
 script = ExtResource("1_issyq")
+item = SubResource("Resource_jj5ah")
 amount = 0
+
+[sub_resource type="Resource" id="Resource_bvqrm"]
+script = ExtResource("3_6f8ed")
+name = ""
+stackable = false
+edible = false
+level = 0.0
 
 [sub_resource type="Resource" id="Resource_pe430"]
 script = ExtResource("1_issyq")
+item = SubResource("Resource_bvqrm")
 amount = 0
+
+[sub_resource type="Resource" id="Resource_cpojj"]
+script = ExtResource("3_6f8ed")
+name = ""
+stackable = false
+edible = false
+level = 0.0
 
 [sub_resource type="Resource" id="Resource_sjcly"]
 script = ExtResource("1_issyq")
+item = SubResource("Resource_cpojj")
 amount = 0
+
+[sub_resource type="Resource" id="Resource_xupo7"]
+script = ExtResource("3_6f8ed")
+name = ""
+stackable = false
+edible = false
+level = 0.0
 
 [sub_resource type="Resource" id="Resource_ohsfv"]
 script = ExtResource("1_issyq")
+item = SubResource("Resource_xupo7")
 amount = 0
+
+[sub_resource type="Resource" id="Resource_8g06m"]
+script = ExtResource("3_6f8ed")
+name = ""
+stackable = false
+edible = false
+level = 0.0
 
 [sub_resource type="Resource" id="Resource_2sgu2"]
 script = ExtResource("1_issyq")
+item = SubResource("Resource_8g06m")
 amount = 0
+
+[sub_resource type="Resource" id="Resource_iu0nd"]
+script = ExtResource("3_6f8ed")
+name = ""
+stackable = false
+edible = false
+level = 0.0
 
 [sub_resource type="Resource" id="Resource_r2kop"]
 script = ExtResource("1_issyq")
+item = SubResource("Resource_iu0nd")
 amount = 0
+
+[sub_resource type="Resource" id="Resource_e2cik"]
+script = ExtResource("3_6f8ed")
+name = ""
+stackable = false
+edible = false
+level = 0.0
 
 [sub_resource type="Resource" id="Resource_d54w0"]
 script = ExtResource("1_issyq")
+item = SubResource("Resource_e2cik")
 amount = 0
+
+[sub_resource type="Resource" id="Resource_u4tb5"]
+script = ExtResource("3_6f8ed")
+name = ""
+stackable = false
+edible = false
+level = 0.0
 
 [sub_resource type="Resource" id="Resource_215g5"]
 script = ExtResource("1_issyq")
+item = SubResource("Resource_u4tb5")
 amount = 0
+
+[sub_resource type="Resource" id="Resource_aosls"]
+script = ExtResource("3_6f8ed")
+name = ""
+stackable = false
+edible = false
+level = 0.0
 
 [sub_resource type="Resource" id="Resource_4xus8"]
 script = ExtResource("1_issyq")
+item = SubResource("Resource_aosls")
 amount = 0
+
+[sub_resource type="Resource" id="Resource_1xlgy"]
+script = ExtResource("3_6f8ed")
+name = ""
+stackable = false
+edible = false
+level = 0.0
 
 [sub_resource type="Resource" id="Resource_n3yar"]
 script = ExtResource("1_issyq")
+item = SubResource("Resource_1xlgy")
 amount = 0
 
 [resource]

@@ -305,7 +305,7 @@ transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition
 [sub_resource type="CircleShape2D" id="CircleShape2D_qnd35"]
 radius = 24.0832
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["players"]]
 visibility_layer = 2
 script = ExtResource("1_88qcy")
 inventory = ExtResource("2_0m2gm")

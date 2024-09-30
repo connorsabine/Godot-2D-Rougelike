@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://d37xfebn0rwca"]
+[gd_scene load_steps=17 format=3 uid="uid://d37xfebn0rwca"]
 
 [ext_resource type="Texture2D" uid="uid://bn1vicbd1u0ds" path="res://assets/tilemap1.png" id="1_75i7e"]
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_onqnn"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://b0t61jfg1fd5c" path="res://scenes/hotbar.tscn" id="5_caksw"]
 [ext_resource type="PackedScene" uid="uid://msy1mim78lp6" path="res://npcs/Chicken/Chicken.tscn" id="6_n7a1g"]
 [ext_resource type="PackedScene" uid="uid://bo61nyxchaofw" path="res://scenes/pause_menu.tscn" id="6_ry70v"]
+[ext_resource type="PackedScene" uid="uid://kvlhp3x456p0" path="res://scenes/health_bar.tscn" id="7_7wvch"]
 [ext_resource type="PackedScene" uid="uid://by2ej87t1x44o" path="res://scenes/inventory.tscn" id="10_an4qq"]
 [ext_resource type="PackedScene" uid="uid://cspniq26dbf17" path="res://scenes/tooltips.tscn" id="11_41psc"]
 [ext_resource type="PackedScene" uid="uid://7se7gsx8grcg" path="res://items/Axe/Axe.tscn" id="11_eaukd"]
@@ -2073,10 +2074,13 @@ visible = false
 
 [node name="inventory" parent="." instance=ExtResource("10_an4qq")]
 
+[node name="health_bar" parent="." instance=ExtResource("7_7wvch")]
+scale = Vector2(0.5, 0.5)
+transform = Transform2D(0.5, 0, 0, 0.5, 0, 0)
+
 [node name="hotbar" parent="." instance=ExtResource("5_caksw")]
 
 [node name="tooltips" parent="." instance=ExtResource("11_41psc")]
-visible = false
 
 [node name="AppleTree" parent="." instance=ExtResource("4_qhs8e")]
 position = Vector2(-176, -108)
@@ -2089,3 +2093,5 @@ position = Vector2(40, 40)
 
 [node name="Chicken" parent="." instance=ExtResource("6_n7a1g")]
 position = Vector2(-31, -45)
+
+[connection signal="hotbar_selection_changed" from="." to="tooltips" method="_on_world_hotbar_selection_changed"]

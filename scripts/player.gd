@@ -1,23 +1,35 @@
 extends CharacterBody2D
 
+
 # Exports
 @export var inventory : Inventory
 @export var SPEED : float = 300.0
+@export var health : float = 5.0
+@export var hunger : float = 10.0
+
+
+# Signals
+signal health_update
+signal hunger_update
 
 
 # Variables
 var direction : Vector2 = Vector2.ZERO
 
+
 # On Ready Variables
 @onready var animation_tree = $AnimationTree
+
 
 # On Ready Function
 func _ready():
 	animation_tree.active = true
 
+
+# Run every delta time
 func _process(delta):
-	#update_held_item()
 	update_animation_parameters()
+
 
 # Simple Movement
 func _physics_process(delta):
@@ -26,9 +38,7 @@ func _physics_process(delta):
 		velocity = direction * SPEED
 	else:
 		velocity = Vector2.ZERO
-
 	move_and_slide()
-	
 
 
 # Update Animation Directions
@@ -43,20 +53,37 @@ func update_animation_parameters():
 	if direction != Vector2.ZERO:
 		animation_tree["parameters/idle/blend_position"] = direction
 		animation_tree["parameters/walk/blend_position"] = direction
-	
-	
-## Update to the currently held item
-#func update_held_item():
-	#Global.CURRENT_ITEM = inventory.get_index(Global.SELECTED_HOTBAR_SLOT)
-	#
-	
+
 
 # Add Item to Inventory
-func collect(item):
+func collect(item : InventoryItem):
 	inventory.insert(item)
-	
 
-# Pickup Items (Set Collision Area Name to Item Name + Pickup)
+
+# Remove Item from Inventory
+func remove(item : InventoryItem):
+	inventory.remove(item)
+
+
+# Take Damage / Heal
+func update_health(change : float):
+	self.health += change
+	if self.health > 5:
+		self.health = 5
+	if self.health <= 0:
+		# die()
+		# reset the player to beginning
+		pass
+	health_update.emit()
+
+
+# Gain / Remove Hunger
+func update_hunger(change : float):
+	self.hunger += change
+	hunger_update.emit()
+
+
+# Pickup Items (Set Collision Area Name to Item Name + "Pickup")
 func _on_pickup_range_area_entered(area):
 	if "Pickup" in area.get_name():
 		var item = area.get_name().replace("Pickup", "")

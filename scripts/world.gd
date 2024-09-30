@@ -1,17 +1,27 @@
 extends Node2D
 
+
+# On Ready Variables
 @onready var tile_map : TileMap = $TileMap
 @onready var inventory : Inventory = preload("res://player/inventory.tres")
-@onready var slots : Array = $hotbar/HotbarUI/GridContainer.get_children()
 
+
+# Variables
 var ground_layer = 1
 var enviorment_layer = 2
 var farm_land_vector =  Vector2i(4, 7)
 
 
+# Signals
+signal hotbar_selection_changed
+
+
+# On Ready
 func _ready():
 	pass
-	
+
+
+# Get all properties and methods of a class instance
 func dir(class_instance):
 	var output = {}
 	var methods = []
@@ -24,46 +34,54 @@ func dir(class_instance):
 			properties.append(prop.name)
 	output["PROPERTIES"] = properties
 	return output
-	
-func update_hotbar_data():
-	for i in range(4):
-		slots[i].update(inventory.slots[i])
-	
-func update_selected_item(index):
+
+
+# Run every process
+func _process(delta: float) -> void:
+	update_global_held_item(Global.HELD_SLOT)
+
+
+func update_global_held_item(index):
 	Global.HELD_ITEM = inventory.get_index(index) 
-	
+
+
 func get_custom_data(tile_mouse_position, custom_data_layer, layer):
 	var tile_data : TileData = tile_map.get_cell_tile_data(layer, tile_mouse_position)
 	if tile_data:
 		return tile_data.get_custom_data(custom_data_layer)
 	else:
 		return false
-		
-		
+
+
 func _input(event):
 	# Hotbar Selection
 	if Input.is_action_just_pressed("hotbar_select_1"):
-		update_selected_item(0)
 		Global.HELD_SLOT = 0
+		update_global_held_item(Global.HELD_SLOT)
+		hotbar_selection_changed.emit()
 	elif Input.is_action_just_pressed("hotbar_select_2"):
-		update_selected_item(1)
 		Global.HELD_SLOT = 1
+		update_global_held_item(Global.HELD_SLOT)
+		hotbar_selection_changed.emit()
 	elif Input.is_action_just_pressed("hotbar_select_3"):
-		update_selected_item(2)
 		Global.HELD_SLOT = 2
+		update_global_held_item(Global.HELD_SLOT)
+		hotbar_selection_changed.emit()
 	elif Input.is_action_just_pressed("hotbar_select_4"):
-		update_selected_item(3)
 		Global.HELD_SLOT = 3
+		update_global_held_item(Global.HELD_SLOT)
+		hotbar_selection_changed.emit()
 	elif Input.is_action_just_pressed("hotbar_select_5"):
-		update_selected_item(4)
 		Global.HELD_SLOT = 4
+		update_global_held_item(Global.HELD_SLOT)
+		hotbar_selection_changed.emit()
 	
 	# World Interaction
 	if Input.is_action_just_pressed("click"):
 		var tile_mouse_position : Vector2i = tile_map.local_to_map(get_global_mouse_position())
 		tile_mouse_position = Vector2i(tile_mouse_position.x, tile_mouse_position.y+1)
 
-		if Global.HELD_ITEM == "shovel":
+		if Global.HELD_ITEM.name == "shovel":
 			if get_custom_data(tile_mouse_position, "can_place_dirt", ground_layer):
 				tile_map.set_cells_terrain_connect(ground_layer, [tile_mouse_position], 3, 0)
 				#
