@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://b0t61jfg1fd5c" path="res://scenes/hotbar.tscn" id="5_caksw"]
 [ext_resource type="PackedScene" uid="uid://msy1mim78lp6" path="res://npcs/Chicken/Chicken.tscn" id="6_n7a1g"]
 [ext_resource type="PackedScene" uid="uid://bo61nyxchaofw" path="res://scenes/pause_menu.tscn" id="6_ry70v"]
-[ext_resource type="PackedScene" uid="uid://kvlhp3x456p0" path="res://scenes/health_bar.tscn" id="7_7wvch"]
+[ext_resource type="PackedScene" uid="uid://kvlhp3x456p0" path="res://scenes/status_bars.tscn" id="7_7wvch"]
 [ext_resource type="PackedScene" uid="uid://by2ej87t1x44o" path="res://scenes/inventory.tscn" id="10_an4qq"]
 [ext_resource type="PackedScene" uid="uid://cspniq26dbf17" path="res://scenes/tooltips.tscn" id="11_41psc"]
 [ext_resource type="PackedScene" uid="uid://7se7gsx8grcg" path="res://items/Axe/Axe.tscn" id="11_eaukd"]
@@ -2074,7 +2074,7 @@ visible = false
 
 [node name="inventory" parent="." instance=ExtResource("10_an4qq")]
 
-[node name="health_bar" parent="." instance=ExtResource("7_7wvch")]
+[node name="status_bars" parent="." instance=ExtResource("7_7wvch")]
 scale = Vector2(0.5, 0.5)
 transform = Transform2D(0.5, 0, 0, 0.5, 0, 0)
 

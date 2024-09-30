@@ -1,13 +1,14 @@
 extends CanvasLayer
 
 
+# On Ready Function
 func _ready() -> void:
 	$Label.text = ""
 
 
+# Run every delta time
 func _process(delta: float) -> void:
-	# reduce the visibility of the text box 
-	pass
+	$Label.modulate = Color(1, 1, 1, $Timer.time_left/2)
 
 
 # Set the tooltip to a string and start timer
