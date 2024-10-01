@@ -17,7 +17,6 @@ func _ready():
 func _physics_process(delta):
 	var wait = 1
 	if states["walking"]:
-		
 		if randi_range(1, 2) > 1.5:
 			moving = 1
 		else:

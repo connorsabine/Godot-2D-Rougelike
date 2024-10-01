@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://msy1mim78lp6"]
 
 [ext_resource type="Texture2D" uid="uid://ce8okvbrlq166" path="res://assets/farming.png" id="1_657ta"]
-[ext_resource type="Script" path="res://npcs/Chicken/Chicken.gd" id="1_7546s"]
+[ext_resource type="Script" path="res://npcs/friendly/Chicken/Chicken.gd" id="1_7546s"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xu1kl"]
 atlas = ExtResource("1_657ta")

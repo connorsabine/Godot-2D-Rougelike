@@ -1,0 +1,160 @@
+[gd_scene load_steps=21 format=3 uid="uid://bofedsarw1bqi"]
+
+[ext_resource type="Script" path="res://npcs/enemy/Slime/Slime.gd" id="1_43vb5"]
+[ext_resource type="Texture2D" uid="uid://bom354id8ore8" path="res://assets/slime.png" id="2_ew85n"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3o7rg"]
+atlas = ExtResource("2_ew85n")
+region = Rect2(0, 384, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yxhlu"]
+atlas = ExtResource("2_ew85n")
+region = Rect2(32, 384, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dm2ap"]
+atlas = ExtResource("2_ew85n")
+region = Rect2(64, 384, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7cdko"]
+atlas = ExtResource("2_ew85n")
+region = Rect2(96, 384, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bowlg"]
+atlas = ExtResource("2_ew85n")
+region = Rect2(128, 384, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sp4gs"]
+atlas = ExtResource("2_ew85n")
+region = Rect2(160, 384, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jvjm1"]
+atlas = ExtResource("2_ew85n")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wp0ng"]
+atlas = ExtResource("2_ew85n")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_63m2d"]
+atlas = ExtResource("2_ew85n")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dmy8q"]
+atlas = ExtResource("2_ew85n")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v32hq"]
+atlas = ExtResource("2_ew85n")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q8n3m"]
+atlas = ExtResource("2_ew85n")
+region = Rect2(32, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bmam6"]
+atlas = ExtResource("2_ew85n")
+region = Rect2(64, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dik7x"]
+atlas = ExtResource("2_ew85n")
+region = Rect2(96, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uj02j"]
+atlas = ExtResource("2_ew85n")
+region = Rect2(128, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m7nia"]
+atlas = ExtResource("2_ew85n")
+region = Rect2(160, 96, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8oqit"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3o7rg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yxhlu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dm2ap")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7cdko")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bowlg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sp4gs")
+}],
+"loop": false,
+"name": &"die",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jvjm1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wp0ng")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_63m2d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dmy8q")
+}],
+"loop": true,
+"name": &"idling",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v32hq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q8n3m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bmam6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dik7x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uj02j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m7nia")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 7.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gx7nm"]
+radius = 13.0
+
+[node name="Slime" type="CharacterBody2D"]
+script = ExtResource("1_43vb5")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_8oqit")
+animation = &"die"
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_gx7nm")
+
+[node name="state" type="Timer" parent="."]
+autostart = true
+
+[node name="walk" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
+[connection signal="timeout" from="state" to="." method="_on_state_timeout"]
+[connection signal="timeout" from="walk" to="." method="_on_walk_timeout"]

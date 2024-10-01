@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://d37xfebn0rwca"]
+[gd_scene load_steps=18 format=3 uid="uid://d37xfebn0rwca"]
 
 [ext_resource type="Texture2D" uid="uid://bn1vicbd1u0ds" path="res://assets/tilemap1.png" id="1_75i7e"]
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_onqnn"]
@@ -7,12 +7,13 @@
 [ext_resource type="PackedScene" uid="uid://bdwd0cwfa8fo4" path="res://tiles/OakTree/OakTree.tscn" id="4_nxaaj"]
 [ext_resource type="PackedScene" uid="uid://dwdr8d3c5yfe" path="res://tiles/AppleTree/AppleTree.tscn" id="4_qhs8e"]
 [ext_resource type="PackedScene" uid="uid://b0t61jfg1fd5c" path="res://scenes/hotbar.tscn" id="5_caksw"]
-[ext_resource type="PackedScene" uid="uid://msy1mim78lp6" path="res://npcs/Chicken/Chicken.tscn" id="6_n7a1g"]
+[ext_resource type="PackedScene" uid="uid://msy1mim78lp6" path="res://npcs/friendly/Chicken/Chicken.tscn" id="6_n7a1g"]
 [ext_resource type="PackedScene" uid="uid://bo61nyxchaofw" path="res://scenes/pause_menu.tscn" id="6_ry70v"]
 [ext_resource type="PackedScene" uid="uid://kvlhp3x456p0" path="res://scenes/status_bars.tscn" id="7_7wvch"]
 [ext_resource type="PackedScene" uid="uid://by2ej87t1x44o" path="res://scenes/inventory.tscn" id="10_an4qq"]
 [ext_resource type="PackedScene" uid="uid://cspniq26dbf17" path="res://scenes/tooltips.tscn" id="11_41psc"]
 [ext_resource type="PackedScene" uid="uid://7se7gsx8grcg" path="res://items/Axe/Axe.tscn" id="11_eaukd"]
+[ext_resource type="PackedScene" uid="uid://bofedsarw1bqi" path="res://npcs/enemy/Slime/Slime.tscn" id="14_e0vvo"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f7gb7"]
 texture = ExtResource("1_75i7e")
@@ -2093,5 +2094,8 @@ position = Vector2(40, 40)
 
 [node name="Chicken" parent="." instance=ExtResource("6_n7a1g")]
 position = Vector2(-31, -45)
+
+[node name="Slime" parent="." instance=ExtResource("14_e0vvo")]
+position = Vector2(50, -40)
 
 [connection signal="hotbar_selection_changed" from="." to="tooltips" method="_on_world_hotbar_selection_changed"]
