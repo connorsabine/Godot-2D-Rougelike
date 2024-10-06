@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://dmtlq44l7m0rq"]
+
+[ext_resource type="Script" path="res://items/Axe/Axe.gd" id="1_mek66"]
+[ext_resource type="Texture2D" uid="uid://ce8okvbrlq166" path="res://assets/farming.png" id="2_5bkda"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1j3ed"]
+radius = 5.81576
+height = 16.0
+
+[node name="Bow" type="StaticBody2D" groups=["collectable"]]
+script = ExtResource("1_mek66")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_5bkda")
+region_enabled = true
+region_rect = Rect2(112.909, 81.2662, 15.6479, 14.7137)
+
+[node name="Bow" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bow"]
+rotation = 0.958186
+shape = SubResource("CapsuleShape2D_1j3ed")
+
+[connection signal="area_entered" from="Bow" to="." method="_on_axe_pickup_area_entered"]

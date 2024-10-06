@@ -7,7 +7,7 @@
 radius = 4.0
 height = 16.0
 
-[node name="Axe" type="StaticBody2D"]
+[node name="Axe" type="StaticBody2D" groups=["collectable"]]
 script = ExtResource("1_fsh23")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -15,10 +15,10 @@ texture = ExtResource("2_i8ux2")
 region_enabled = true
 region_rect = Rect2(143.754, 80.9119, 16.0535, 14.4786)
 
-[node name="AxePickup" type="Area2D" parent="."]
+[node name="Axe" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AxePickup"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Axe"]
 rotation = 0.958186
 shape = SubResource("CapsuleShape2D_1j3ed")
 
-[connection signal="area_entered" from="AxePickup" to="." method="_on_axe_pickup_area_entered"]
+[connection signal="area_entered" from="Axe" to="." method="_on_axe_pickup_area_entered"]

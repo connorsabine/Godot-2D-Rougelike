@@ -4,10 +4,6 @@
 [ext_resource type="Resource" uid="uid://gqc5y4bvhs2a" path="res://player/inventory.tres" id="2_0m2gm"]
 [ext_resource type="Texture2D" uid="uid://dv8023dbpaipp" path="res://assets/player.png" id="2_saggl"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yni73"]
-radius = 1.0
-height = 6.0
-
 [sub_resource type="Animation" id="Animation_mqw7g"]
 length = 0.001
 tracks/0/type = "value"
@@ -302,6 +298,10 @@ states/walk/node = SubResource("AnimationNodeBlendSpace2D_5v436")
 states/walk/position = Vector2(422.667, 41.6667)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_pmqne"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_l4f8u"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_fa30v")]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yni73"]
+radius = 1.0
+height = 6.0
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_qnd35"]
 radius = 24.0832
 
@@ -320,11 +320,6 @@ flip_h = true
 hframes = 24
 frame = 1
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -1)
-rotation = 1.5708
-shape = SubResource("CapsuleShape2D_yni73")
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_r8onw")
@@ -338,9 +333,32 @@ parameters/conditions/is_moving = false
 parameters/idle/blend_position = Vector2(0, 0)
 parameters/walk/blend_position = Vector2(0, 0)
 
+[node name="Collider" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collider"]
+position = Vector2(0, -1)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_yni73")
+
 [node name="Pickup" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pickup"]
 shape = SubResource("CircleShape2D_qnd35")
 
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(0, -9)
+
+[node name="hunger_timer" type="Timer" parent="."]
+wait_time = 10.0
+
+[node name="collision_timer" type="Timer" parent="."]
+
+[node name="attack_cooldown_timer" type="Timer" parent="."]
+wait_time = 0.4
+
+[connection signal="area_entered" from="Collider" to="." method="_on_collider_area_entered"]
+[connection signal="area_exited" from="Collider" to="." method="_on_collider_area_exited"]
 [connection signal="area_entered" from="Pickup" to="." method="_on_pickup_range_area_entered"]
+[connection signal="timeout" from="hunger_timer" to="." method="_on_hunger_timer_timeout"]
+[connection signal="timeout" from="collision_timer" to="." method="_on_collision_timer_timeout"]
+[connection signal="timeout" from="attack_cooldown_timer" to="." method="_on_attack_cooldown_timer_timeout"]

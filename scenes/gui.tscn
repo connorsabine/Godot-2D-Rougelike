@@ -1,0 +1,21 @@
+[gd_scene load_steps=6 format=3 uid="uid://b14erj5smjvl1"]
+
+[ext_resource type="PackedScene" uid="uid://bo61nyxchaofw" path="res://scenes/pause_menu.tscn" id="1_afxr2"]
+[ext_resource type="PackedScene" uid="uid://by2ej87t1x44o" path="res://scenes/inventory.tscn" id="2_nyer0"]
+[ext_resource type="PackedScene" uid="uid://kvlhp3x456p0" path="res://scenes/status_bars.tscn" id="3_dko5s"]
+[ext_resource type="PackedScene" uid="uid://b0t61jfg1fd5c" path="res://scenes/hotbar.tscn" id="4_axf7j"]
+[ext_resource type="PackedScene" uid="uid://cspniq26dbf17" path="res://scenes/tooltips.tscn" id="5_a7g7t"]
+
+[node name="gui" type="CanvasLayer"]
+
+[node name="pause_menu" parent="." instance=ExtResource("1_afxr2")]
+
+[node name="inventory" parent="." instance=ExtResource("2_nyer0")]
+
+[node name="status_bars" parent="." instance=ExtResource("3_dko5s")]
+scale = Vector2(0.5, 0.5)
+transform = Transform2D(0.5, 0, 0, 0.5, 0, 0)
+
+[node name="hotbar" parent="." instance=ExtResource("4_axf7j")]
+
+[node name="tooltips" parent="." instance=ExtResource("5_a7g7t")]

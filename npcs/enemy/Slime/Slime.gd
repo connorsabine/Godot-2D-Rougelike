@@ -3,6 +3,7 @@ extends CharacterBody2D
 
 # Exports
 @export var HEALTH : float = 3
+@export var DAMAGE : float = 1
 
 
 # Variables
@@ -16,15 +17,6 @@ var chase_distance = 100
 # On Ready Function
 func _ready():
 	states["walking"] = true
-
-
-# Hitting the Slime
-# On click on the area, remove health
-func _on_area_2d_input_event(viewport, event, shape_idx):
-	if Input.is_action_just_pressed("click"):
-		self.HEALTH -= 1
-		if self.HEALTH <= 0:
-			die()
 
 
 # Walking & Idling Animations and Movement
@@ -50,10 +42,6 @@ func _physics_process(delta):
 				moving = 2
 			$AnimatedSprite2D.play("walk")
 			if moving == 1:
-				#if direction["x"] == -1:
-					#$AnimatedSprite2D.flip_h = true
-				#if direction["x"] == 1:
-					#$AnimatedSprite2D.flip_h = false
 				velocity.x = speed * direction["x"]
 				velocity.y = 0
 			elif moving == 2:
@@ -64,13 +52,6 @@ func _physics_process(delta):
 			velocity.x = 0
 			velocity.y = 0
 		move_and_slide()
-
-
-func die():
-	states["dead"] = true
-	$AnimatedSprite2D.play("die")
-	await get_tree().create_timer(1).timeout
-	self.queue_free()
 	
 
 func distance_from_self(x, y):
@@ -125,3 +106,27 @@ func _on_walk_timeout():
 		direction["y"] = -1
 	$walk.wait_time = wait
 	$walk.start()
+
+
+func _on_hurtbox_area_entered(area: Area2D) -> void:
+	if area in get_tree().get_nodes_in_group("projectiles"):
+		take_damage(area.DAMAGE)
+
+
+# Hitting the Slime, on click on the area, remove health
+func _on_area_2d_input_event(viewport, event, shape_idx):
+	if Input.is_action_just_pressed("click"):
+		take_damage(1)
+
+
+func take_damage(damage):
+	self.HEALTH -= damage
+	if self.HEALTH <= 0:
+		die()
+
+
+func die():
+	states["dead"] = true
+	$AnimatedSprite2D.play("die")
+	await get_tree().create_timer(1).timeout
+	self.queue_free()

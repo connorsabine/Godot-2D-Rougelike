@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=4 format=3 uid="uid://c3gey1rjq4yd3"]
+
+[ext_resource type="Script" path="res://inv/scripts/InventoryItem.gd" id="1_n86am"]
+[ext_resource type="Texture2D" uid="uid://ce8okvbrlq166" path="res://assets/farming.png" id="2_whv0v"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xlue6"]
+atlas = ExtResource("2_whv0v")
+region = Rect2(143.754, 80.912, 16.053, 14.479)
+
+[resource]
+script = ExtResource("1_n86am")
+name = "axe"
+stackable = false
+edible = false
+level = 0.0
+texture = SubResource("AtlasTexture_xlue6")

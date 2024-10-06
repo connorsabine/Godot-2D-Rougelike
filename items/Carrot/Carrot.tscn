@@ -22,17 +22,17 @@ animations = [{
 radius = 3.70697
 height = 18.4381
 
-[node name="Carrot" type="StaticBody2D"]
+[node name="Carrot" type="StaticBody2D" groups=["collectable"]]
 script = ExtResource("1_fy00a")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_upph3")
 animation = &"carrot"
 
-[node name="CarrotPickup" type="Area2D" parent="."]
+[node name="Carrot" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CarrotPickup"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Carrot"]
 rotation = 0.872665
 shape = SubResource("CapsuleShape2D_j5a2e")
 
-[connection signal="area_entered" from="CarrotPickup" to="." method="_on_carrot_area_entered"]
+[connection signal="area_entered" from="Carrot" to="." method="_on_carrot_area_entered"]

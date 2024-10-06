@@ -136,16 +136,16 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_gx7nm"]
 radius = 13.0
 
-[node name="Slime" type="CharacterBody2D"]
+[node name="Slime" type="CharacterBody2D" groups=["enemies"]]
 script = ExtResource("1_43vb5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_8oqit")
 animation = &"die"
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Hurtbox" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
 shape = SubResource("CircleShape2D_gx7nm")
 
 [node name="state" type="Timer" parent="."]
@@ -155,6 +155,7 @@ autostart = true
 wait_time = 3.0
 autostart = true
 
-[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
+[connection signal="input_event" from="Hurtbox" to="." method="_on_area_2d_input_event"]
 [connection signal="timeout" from="state" to="." method="_on_state_timeout"]
 [connection signal="timeout" from="walk" to="." method="_on_walk_timeout"]

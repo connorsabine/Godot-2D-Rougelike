@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3qayg"]
 size = Vector2(14, 13)
 
-[node name="OakWood" type="StaticBody2D"]
+[node name="OakWood" type="StaticBody2D" groups=["collectable"]]
 script = ExtResource("1_miqq0")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -14,10 +14,10 @@ texture = ExtResource("1_atgbo")
 region_enabled = true
 region_rect = Rect2(176.647, 65.459, 14.7292, 13.1077)
 
-[node name="OakWoodPickup" type="Area2D" parent="."]
+[node name="OakWood" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="OakWoodPickup"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OakWood"]
 position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_3qayg")
 
-[connection signal="area_entered" from="OakWoodPickup" to="." method="_on_oak_wood_area_entered"]
+[connection signal="area_entered" from="OakWood" to="." method="_on_oak_wood_area_entered"]
